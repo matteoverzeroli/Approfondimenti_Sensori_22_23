@@ -1,0 +1,88 @@
+\documentclass[
+	a4paper,
+	cleardoublepage=empty,
+	headings=twolinechapter,
+	numbers=autoenddot,
+]{scrbook}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{import}
+\usepackage{todonotes}
+\usepackage{color}
+\usepackage{rotating}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{pdfpages}
+\usepackage{siunitx}
+\usepackage[italiano]{algorithm2e}
+\usepackage[american, siunitx]{circuitikz}
+\usepackage{pdflscape}
+\usepackage{subfig}
+\usetikzlibrary{fit}
+\usepackage[euler]{textgreek}
+\usepackage{cite}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage[signatures,swapnames,sans]{frontespizio}
+
+\usepackage{siunitx}
+\sisetup{
+	per-mode=fraction,
+	fraction-function=\tfrac
+}
+
+\newcommand{\sub}[1]{\textsubscript{#1}}
+\newcommand{\super}[1]{\textsuperscript{#1}}
+
+\newcommand{\Fig}[0]{Fig.}
+\newcommand{\Eq}[0]{Eq.}
+
+\begin{document}
+	\begin{frontespizio}
+		\Margini{3cm}{3cm}{3cm}{3cm}
+		\Universita{Bergamo}
+		\Logo[43.332mm]{unibg-mark}
+		\Divisione{Scuola di Ingegneria}
+		\Corso[Laurea Magistrale]{Ingegneria Informatica}
+		\Titolo{Corso di Sensori}
+		\Sottotitolo{Approfondimento: PET}
+		\Punteggiatura{}
+		\NRelatore{Prof.}{}
+		\Relatore{Gianluca Traversi}
+		\Candidato[1057926]{Matteo Verzeroli}
+		\Annoaccademico{2022--2023}
+		\begin{Preambolo*}
+			\usepackage[italian]{babel}
+			\usepackage[T1]{fontenc}
+			\usepackage[utf8]{inputenc}
+			\usepackage{microtype}
+			\usepackage{lmodern}
+			\graphicspath{{img/}}
+			
+			\renewcommand{\frontinstitutionfont}{\fontsize{14}{17}\bfseries\scshape}
+			\renewcommand{\fronttitlefont}{\fontsize{17}{21}\bfseries\scshape}
+			\renewcommand{\frontfootfont}{\fontsize{12}{14}\bfseries\scshape}
+		\end{Preambolo*}
+	\end{frontespizio}	
+
+	\tableofcontents
+	\listoffigures
+	
+	\mainmatter
+	
+	\chapter*{Introduzione}
+	\addcontentsline{toc}{chapter}{Introduzione}
+	\import{./TextFiles/}{Introduzione.tex}
+	
+	\chapter{Principio di funzionamento}
+	\import{./TextFiles/}{Principio di funzionamento.tex}
+		
+	\bibliographystyle{unsrt}
+	\bibliography{./OtherFiles/Bibliography,./OtherFiles/Bibliography_site}
+	
+	\addcontentsline{toc}{chapter}{Bibliografia}
+	
+\end{document}
