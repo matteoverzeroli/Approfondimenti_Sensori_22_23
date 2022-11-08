@@ -93,22 +93,48 @@ Nella figura \ref{fig:ptm} è mostrato lo schema della struttura di un fotomolti
 \begin{figure}[h]
 	\centering
 	a)
-	\begin{minipage}{.60\textwidth}
+	\begin{minipage}{.70\textwidth}
 		\includegraphics[width=\linewidth]{./ImageFiles/ptm.jpg}
 	\end{minipage}
+
 	b)
-	\begin{minipage}{.60\textwidth}
+	\begin{minipage}{.70\textwidth}
 		\includegraphics[width=\linewidth]{./ImageFiles/ptm_schema.jpg}
 	\end{minipage}
-	\caption{Principio di funzionamento di un \textit{photomultiplier tube} (PTM): a) struttura semplificata; b) schema semplificato del circuito di polarizzazione ad alta tensione. Immagine tratta da \cite{Jiang2019}.}
+	\caption{Principio di funzionamento di un \textit{photomultiplier tube} (PTM): a) struttura semplificata; b) schema semplificato del circuito di polarizzazione ad alta tensione. Immagine tratta da Jiang et al. \cite{Jiang2019}.}
 	\label{fig:ptm}
 \end{figure}
 Esso è composto da un \textit{fotocatodo}, una serie di elettrodi chiamati \textit{dinodi} e un \textit{anodo}, inseriti in un tubo di vetro al cui interno è stato praticato il vuoto. Ai differenti dinodo è applicata una tensione crescente che permette di aumentare progressivamente il campo elettrico all'interno del tubo. I fotoni incidenti sul fotocatodo (ricoperto da un materiale che favorisce l'effetto fotoelettrico) generano degli elettroni (denominati \textit{fotoelettroni}) che vengono focalizzati da un elettrodo verso il primo dinodo. A causa del forte campo elettrico generato dalla differenza di potenziale tra il primo dinodo e il fotocadoto, gli elettroni primari aumentano la propria energia cinetica. Quando un elettrone fotogenerato colpisce il primo dinodo provoca l'emissione secondaria di diversi elettroni con minore energia. La struttura è realizzata in modo che ciascun elettrone secondario venga accelerato verso il dinodo successivo e provochi quindi l'emissione di ulteriori elettroni secondari. Si instaura così un fenomeno a cascata per cui un singolo elettrone fotogenerato genera un numero di elettroni pari a 
 \begin{equation}
 	G = f^n,
 \end{equation}
-dove $f$ è il fattore di emissione di elettroni secondari di ogni dinodo e n è il numero di dinodi. Valori tipici delle tensioni di alimentazioni sono  compresi nell'intervallo di \numrange[range-phrase=--]{1000}{2000}\,\unit{\kilo\volt} e il guadagno $G$ raggiunto è di circa di $G=10^6$.
+dove $f$ è il fattore di emissione di elettroni secondari di ogni dinodo e n è il numero di dinodi. Valori tipici delle tensioni di alimentazioni sono  compresi nell'intervallo di \numrange[range-phrase=--]{1000}{2000}\,\unit{\kilo\volt} e il guadagno $G$ raggiunto è di circa di $G=10^6$. Per determinare la posizione dell'interazione \textit{fotone-cristallo scintillatore}, è possibile utilizzare una struttura definita a \textit{block detector} (\Fig\ref{fig:block_detector}).
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{./ImageFiles/block_detector.jpg}
+	\caption{Schema della struttura di un \textit{block detector} con piccoli cristalli scintillatori raggruppati in blocchi accoppiati a quattro PMT. Immagine tratta da Schmitz et al. \cite{Schmitz2013ThePO}}. 
+	\label{fig:block_detector}
+\end{figure}
+Viene ricavato da un cristallo una matrice di blocchi scitillatori (di dimensioni di qualche millimetro), suddivisi da un materiale riflettente. Gli impulsi luminosi emessi vengono letti da 4 differenti PMT (\Fig\ref{fig:block_detector_cube}).
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{./ImageFiles/block_detector_lightoncube.jpg}
+	\caption{Distribuzione della luce in un cristallo scintillatore suddiviso in una matrice di cristalli. Immagine tratta da Terry Jones and David Townsend \cite{Jones2017}}. 
+	\label{fig:block_detector_cube}
+\end{figure}
+Confrontando le intensità rilevate dai quattro PMT con dei valori pre-calcolati, è possibile ricavare la posizione del fotone incidente sul piano tramite le seguenti equazioni \cite{RamseyDerek} (logica di Anger):
+\begin{equation}
+	\begin{split}
+		R_X&=\frac{A+B}{A+B+C+D} \\
+		R_Y&=\frac{A+C}{A+B+C+D}, \\
+	\end{split}
+\end{equation}
+dove $A,B,C,D$ rappresentano la frazione di luce misurata dai quattro PMT.
 
+Idealmente, se nessun fotone viene assorbito dal fotocatodo (ossia se il sensore viene tenuto al buio), non ci sarà nessun segnale all'anodo del PMT. Tuttavia, statisticamente c'è una probabilità non nulla che degli elettroni vengano emessi dal fotocadoto e dai dinodi per effetto termoionico, generando un impulso. Ciò determina il parametro di\textit{dark count rate} (DCR) del PMT (tipicamente pari a 10 impulsi al secondo). \todo{inserire pag 8 sesnor for positron TTR e TTs}
+Un altro parametro di interesse per descrivere un PMT è la \textit{Photon detection efficiency} (PDE) che descrive la probabilità di emissione di un elettrone fotogenerato per ogni fotone incidente, che dipende dalla \textit{quantum efficiency} (QE) del materiale che ricopre il fotocatodo e dalla \textit{collection efficiency} (CE), ossia il rapporto tra il numero di elettroni che giungono al primo dinodo e quelli generati dal fotocatodo \cite{Hai2018}. La QE di un PMT è tipicamente pari al \SI{25}{\percent}, ma la PDE assume un valore minore a causa della CE, dal momento che non tutti gli elettroni fotogenerati generano un impulso luminoso.
+
+\clearpage
 \subsection{Avalanche Photodiodes}
 
 \subsection{Silicon Photomultipliers}
