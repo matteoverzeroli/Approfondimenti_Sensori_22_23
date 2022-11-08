@@ -18,15 +18,13 @@ Una volta che il \textit{tracer} radioattivo è stato iniettato al paziente, rag
 \end{figure}
 
 \chapter{Sistema PET}
-Nella figura \ref{fig:PET_imaging_system} è rappresentato un sistema di imaging PET. 
+Nella figura \ref{fig:PET_imaging_system} è rappresentato un sistema di imaging PET. Per rilevare i raggi gamma derivanti dal processo di annichilazione \textit{elettrone-positrone}, viene utilizzato un rilevatore a scintillazione, composto da uno scintillatore e un fotorilevatore. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\linewidth]{./ImageFiles/PET_imaging_system}
 	\caption{Principio di funzionamento di un sistema per tomografia ad emissione di positroni (PET). Un anello di sensori rilevano una coppia di raggi gamma con un'energia di \SI{511}{3\kilo\electronvolt} (frecce rosse) che derivano dalla annichilazione di un elettrone con un positrone emesso da un radiotracciante (FDG). Immagine tratta da Jiang W. et al \cite{Jiang2019}.}
 	\label{fig:PET_imaging_system}
 \end{figure}
-Per rilevare i raggi gamma derivanti dal processo di annichilazione \textit{elettrone-positrone}, viene utilizzato un rilevatore a scintillazione, composto da uno scintillatore e un fotorilevatore. 
-
 \section{Scintillatori}
 I cristalli scintillatori sono utilizzati per assorbire e convertire un raggio gamma ad alta energia in fotoni visibili a bassa energia, rilevati da opportuni sensori. Uno dei cristalli scintillatori più utilizzati è il \textit{Lutetium–(yttrium) oxyorthosilicate} (L(Y)SO) che garantisce una buona risoluzione di energia, alta luminosità in uscita e un tempo veloce di decadimento. Il processo di conversione di fotoni ad alta energia (raggi \textgamma) in luce visibile consiste in tre fasi \cite{RamseyDerek}:
 \begin{itemize}
@@ -53,7 +51,7 @@ Questa distribuzione è influenzata dalle caratteristiche del tracciatore radioa
 \noindent
 Il confronto tra alcune caratteristiche di diversi scintillatori utilizzati negli scanner PET sono riportate nella tabella \ref{tab:scintillator_properties}.
 
-\begin{table}[h]
+\begin{table}[tbh]
 	\centering
 	\begin{tabular}{l|ccc}
 		\hline
@@ -68,7 +66,7 @@ Il confronto tra alcune caratteristiche di diversi scintillatori utilizzati negl
 
 \section{Fotorilevatori}
 Per convertire il segnale luminoso in segnale elettrico si utilizzano dei fotorilevatori, come ad esempio i \textit{Photomultiplier Tubes} (PMTs), Avalanche Photodiodes (ADPs) e i Silicon Photomultipliers (SiPMs). Si creano quindi dei moduli (\Fig\ref{fig:photodetectors}) costituiti da uno scintillatore montato su un fotorilevatore.
-\begin{figure}[h]
+\begin{figure}[tbh]
 	\centering
 	a)
 	\begin{minipage}{.45\textwidth}
@@ -90,7 +88,7 @@ Questi \textit{detectors} modulari sono poi uniti per formare un anello al centr
 Di seguito si analizzano alcuni fotorivelatori utilizzati nei sistemi PET.
 \subsection{Photomultiplier Tubes}
 Nella figura \ref{fig:ptm} è mostrato lo schema della struttura di un fotomoltiplicatore PMT (\textit{Photomultiplier Tube}).
-\begin{figure}[h]
+\begin{figure}[tbh]
 	\centering
 	a)
 	\begin{minipage}{.70\textwidth}
@@ -109,14 +107,14 @@ Esso è composto da un \textit{fotocatodo}, una serie di elettrodi chiamati \tex
 	G = f^n,
 \end{equation}
 dove $f$ è il fattore di emissione di elettroni secondari di ogni dinodo e n è il numero di dinodi. Valori tipici delle tensioni di alimentazioni sono  compresi nell'intervallo di \numrange[range-phrase=--]{1000}{2000}\,\unit{\kilo\volt} e il guadagno $G$ raggiunto è di circa di $G=10^6$. Per determinare la posizione dell'interazione \textit{fotone-cristallo scintillatore}, è possibile utilizzare una struttura definita a \textit{block detector} (\Fig\ref{fig:block_detector}).
-\begin{figure}[h]
+\begin{figure}[tbh]
 	\centering
-	\includegraphics[width=0.9\linewidth]{./ImageFiles/block_detector.jpg}
+	\includegraphics[width=0.8\linewidth]{./ImageFiles/block_detector.jpg}
 	\caption{Schema della struttura di un \textit{block detector} con piccoli cristalli scintillatori raggruppati in blocchi accoppiati a quattro PMT. Immagine tratta da Schmitz et al. \cite{Schmitz2013ThePO}}. 
 	\label{fig:block_detector}
 \end{figure}
 Viene ricavato da un cristallo una matrice di blocchi scitillatori (di dimensioni di qualche millimetro), suddivisi da un materiale riflettente. Gli impulsi luminosi emessi vengono letti da 4 differenti PMT (\Fig\ref{fig:block_detector_cube}).
-\begin{figure}[h]
+\begin{figure}[tbh]
 	\centering
 	\includegraphics[width=0.6\linewidth]{./ImageFiles/block_detector_lightoncube.jpg}
 	\caption{Distribuzione della luce in un cristallo scintillatore suddiviso in una matrice di cristalli. Immagine tratta da Terry Jones and David Townsend \cite{Jones2017}}. 
@@ -134,8 +132,19 @@ dove $A,B,C,D$ rappresentano la frazione di luce misurata dai quattro PMT.
 Idealmente, se nessun fotone viene assorbito dal fotocatodo (ossia se il sensore viene tenuto al buio), non ci sarà nessun segnale all'anodo del PMT. Tuttavia, statisticamente c'è una probabilità non nulla che degli elettroni vengano emessi dal fotocadoto e dai dinodi per effetto termoionico, generando un impulso. Ciò determina il parametro di\textit{dark count rate} (DCR) del PMT (tipicamente pari a 10 impulsi al secondo). \todo{inserire pag 8 sesnor for positron TTR e TTs}
 Un altro parametro di interesse per descrivere un PMT è la \textit{Photon detection efficiency} (PDE) che descrive la probabilità di emissione di un elettrone fotogenerato per ogni fotone incidente, che dipende dalla \textit{quantum efficiency} (QE) del materiale che ricopre il fotocatodo e dalla \textit{collection efficiency} (CE), ossia il rapporto tra il numero di elettroni che giungono al primo dinodo e quelli generati dal fotocatodo \cite{Hai2018}. La QE di un PMT è tipicamente pari al \SI{25}{\percent}, ma la PDE assume un valore minore a causa della CE, dal momento che non tutti gli elettroni fotogenerati generano un impulso luminoso.
 
-\clearpage
+Sebbene i PMT abbiano un alto guadagno, alta risoluzione nel tempo, basso \textit{noise} e una QE accettabile, presentano alcuni svantaggi. Infatti, sono molto fragili e sensibili a vibrazioni meccani e disturbi elettromagnetici e necessitano di alte tensioni di alimentazione. Per questo motivo sono state sviluppate soluzioni a stato solido come gli ADP e i SiPM.
+
+\newpage
 \subsection{Avalanche Photodiodes}
+Gli \textit{avalanche photodiodes} (APDs) sono diodi che strutturalmente sono simili ai p-n e p-i-n fotodiodi ma presentano un meccanismo di guadagno determinato da un eventi "a valanga". Essi sono fortemente polarizzati inversamente, generando un forte campo magnetico nella zona di svuotamento. In questo modo, quando un elettrone viene generato da un fotone incidente (effetto fotoelettrico) nella zona di svuotamento subisce una accelerazione tale che, all'impatto con gli atomi del reticolo del substrato, genera una coppia elettrone-lacuna (\Fig\ref{fig:adp}).  
+
+\begin{figure}[tbh]
+	\centering
+	\includegraphics[width=0.8\linewidth]{./ImageFiles/ADP.jpg}
+	\caption{Effetto a valanga in un ADP. $\alpha_n^{-1}$ è la distanza media tra ogni evento di moltiplicazione e $V_{TOT}$ è la tensione di polarizzazione (sommata al potenziale di built-in). Immagine tratta da Wei Jiang et al. \cite{Jiang2019}.} 
+	\label{fig:adp}
+\end{figure}
+
 
 \subsection{Silicon Photomultipliers}
 
