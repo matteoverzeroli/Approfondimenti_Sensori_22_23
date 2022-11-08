@@ -1,4 +1,4 @@
-\section{Fisica della Tomografia ad Emissione di Positroni}
+\chapter{Fisica della Tomografia ad Emissione di Positroni}
 Il principio alla base delle tecniche PET consiste nella rilevazione simultanea di due raggi \textGamma generati da un evento di annichilazione \textit{elettrone-positrone}, generato da iniezione di un tracciante radioattivo in un soggetto. I positroni sono emessi dal nucleo di isotopi instabili e ricchi di protoni, durante il processo di decadimento radioattivo \cite{Bailey2014}. Infatti, questi isotopi acquisiscono la stabilità tramite un processo di decadimento che converte un protone in un neutrone, con la generazione di un positrone. Il positrone, chiamato anche \textit{antielettrone}, è l'antiparticella dell'elettrone. Infatti, esso ha la stessa massa e spin 1/2 dell'elettrone ma presenta una carica elettrica \textit{+e}. Più precisamente, il processo di decadimento che si verifica è di tipo \textit{beta plus} ($\beta^+$) in cui un protone legato ($p$) del nucleo dell'isotopo radioattivo si trasforma in un neutrone legato, un positrone ($e^+$) e un neutrino ($\nu_e$) \cite{Betaplus}. Il processo può essere riassunto dalla equazione:
 \begin{equation}
 	\text{p}\to \text{n} + e^+ + \nu_e.
@@ -17,7 +17,7 @@ Una volta che il \textit{tracer} radioattivo è stato iniettato al paziente, rag
 	\label{fig:annihilation}
 \end{figure}
 
-\section{Sistema PET}
+\chapter{Sistema PET}
 Nella figura \ref{fig:PET_imaging_system} è rappresentato un sistema di imaging PET. 
 \begin{figure}[h]
 	\centering
@@ -27,7 +27,7 @@ Nella figura \ref{fig:PET_imaging_system} è rappresentato un sistema di imaging
 \end{figure}
 Per rilevare i raggi gamma derivanti dal processo di annichilazione \textit{elettrone-positrone}, viene utilizzato un rilevatore a scintillazione, composto da uno scintillatore e un fotorilevatore. 
 
-\subsection{Scintillatori}
+\section{Scintillatori}
 I cristalli scintillatori sono utilizzati per assorbire e convertire un raggio gamma ad alta energia in fotoni visibili a bassa energia, rilevati da opportuni sensori. Uno dei cristalli scintillatori più utilizzati è il \textit{Lutetium–(yttrium) oxyorthosilicate} (L(Y)SO) che garantisce una buona risoluzione di energia, alta luminosità in uscita e un tempo veloce di decadimento. Il processo di conversione di fotoni ad alta energia (raggi \textgamma) in luce visibile consiste in tre fasi \cite{RamseyDerek}:
 \begin{itemize}
 	\item un fotone incidente sul cristallo libera un elettrone (tramite effetto fotoelettrico o effetto Compton);
@@ -66,4 +66,57 @@ Il confronto tra alcune caratteristiche di diversi scintillatori utilizzati negl
 	\label{tab:scintillator_properties}
 \end{table}
 
-\subsection{Fotorilevatori}
+\section{Fotorilevatori}
+Per convertire il segnale luminoso in segnale elettrico si utilizzano dei fotorilevatori, come ad esempio i \textit{Photomultiplier Tubes} (PMTs), Avalanche Photodiodes (ADPs) e i Silicon Photomultipliers (SiPMs). Si creano quindi dei moduli (\Fig\ref{fig:photodetectors}) costituiti da uno scintillatore montato su un fotorilevatore.
+\begin{figure}[h]
+	\centering
+	a)
+	\begin{minipage}{.45\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/PET_detectors.jpg}
+	\end{minipage}
+	b)
+	\begin{minipage}{.45\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/PET_detectors_real.jpg}
+	\end{minipage}
+	\caption{Struttura di un sensore PET. Immagini tratte da \cite{Jiang2019} e da \cite{Spanoudaki2010}.}
+	\label{fig:photodetectors}
+\end{figure}
+Questi \textit{detectors} modulari sono poi uniti per formare un anello al centro del quale rilevare i raggi gamma (\Fig\ref{fig:PET_imaging_system}). I rilevatori utilizzati per la PET devono permettere di ricavare tre tipi di informazioni:
+\begin{itemize}
+	\item la posizione di dove il raggio gamma impatta lo scintillatore;
+	\item il tempo in cui si verifica l'impulso luminoso;
+	\item l'energia dell'impulso luminoso generato.
+\end{itemize}
+Di seguito si analizzano alcuni fotorivelatori utilizzati nei sistemi PET.
+\subsection{Photomultiplier Tubes}
+Nella figura \ref{fig:ptm} è mostrato lo schema della struttura di un fotomoltiplicatore PMT (\textit{Photomultiplier Tube}).
+\begin{figure}[h]
+	\centering
+	a)
+	\begin{minipage}{.60\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/ptm.jpg}
+	\end{minipage}
+	b)
+	\begin{minipage}{.60\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/ptm_schema.jpg}
+	\end{minipage}
+	\caption{Principio di funzionamento di un \textit{photomultiplier tube} (PTM): a) struttura semplificata; b) schema semplificato del circuito di polarizzazione ad alta tensione. Immagine tratta da \cite{Jiang2019}.}
+	\label{fig:ptm}
+\end{figure}
+Esso è composto da un \textit{fotocatodo}, una serie di elettrodi chiamati \textit{dinodi} e un \textit{anodo}, inseriti in un tubo di vetro al cui interno è stato praticato il vuoto. Ai differenti dinodo è applicata una tensione crescente che permette di aumentare progressivamente il campo elettrico all'interno del tubo. I fotoni incidenti sul fotocatodo (ricoperto da un materiale che favorisce l'effetto fotoelettrico) generano degli elettroni (denominati \textit{fotoelettroni}) che vengono focalizzati da un elettrodo verso il primo dinodo. A causa del forte campo elettrico generato dalla differenza di potenziale tra il primo dinodo e il fotocadoto, gli elettroni primari aumentano la propria energia cinetica. Quando un elettrone fotogenerato colpisce il primo dinodo provoca l'emissione secondaria di diversi elettroni con minore energia. La struttura è realizzata in modo che ciascun elettrone secondario venga accelerato verso il dinodo successivo e provochi quindi l'emissione di ulteriori elettroni secondari. Si instaura così un fenomeno a cascata per cui un singolo elettrone fotogenerato genera un numero di elettroni pari a 
+\begin{equation}
+	G = f^n,
+\end{equation}
+dove $f$ è il fattore di emissione di elettroni secondari di ogni dinodo e n è il numero di dinodi. Valori tipici delle tensioni di alimentazioni sono  compresi nell'intervallo di \numrange[range-phrase=--]{1000}{2000}\,\unit{\kilo\volt} e il guadagno $G$ raggiunto è di circa di $G=10^6$.
+
+\subsection{Avalanche Photodiodes}
+
+\subsection{Silicon Photomultipliers}
+
+\subsection{CZT}
+
+
+\todo{tabella con proprietà dei fororilavatori da Spanoudaki, }
+\section{Principio di funzionamento}
+
+\section{TOF PET}
