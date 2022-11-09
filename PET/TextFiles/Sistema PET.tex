@@ -178,11 +178,18 @@ Tuttavia, il guadagno $M$ è influenzato da diversi fattori, quali la temperatur
 Le performance dei diodi a valanga sono anche determinati dalla \textit{spectral response}, \textit{quantum efficiency} (QE) e \textit{dark current}. La \textit{spectral response} descrive la corrente (A) generata per unita di potenza (W) della luce incidente per diverse lunghezze d'onda \cite{Jiang2019}. Anche la \textit{quantum efficiency} dipende dalla lunghezza d'onda e definisce la percentuale di fotoni che raggiunge la zona di svuotamento e genera un evento a valanga. Sebbene i APD abbiano un guadagno interno tipicamente minore (che può variare dai \numrange[range-phrase=--]{25}{1000}) dei PTM, stanno avendo molto successo negli ultimi anni, grazie al minor costo, alle ridotte dimensioni e alla insensibilità ai campi magnetici (caratteristica usata nei sistemi ibridi PET/MRI).
 
 \subsection{Silicon Photomultipliers}
+Per migliorare ulteriormente le performance dei fotorilevatori, sono stati introdotti i Silicon Photomultiplier (SiPM). Questi dispositivi sono costituiti da una matrice di microscopici pixel, connessi in parallelo, costituiti da APD che operano nella cosiddetta modalità Geiger (denominati anche SPAD). Un Single Photon Avalanche Diode (SPAD) è costituito da una giunzione p-n polarizzata inversamente con una tensione $V_{EX}$ maggiore della tensione di breakdown $V_{BR}$, operando nella modalità definita Geiger \cite{Jiang2019}. Il valore del campo elettrico nella regione di svuotamento è tale che la corrente generata a causa di un singolo fotone assume valori molto alti, producendo un impulso di corrente. Inoltre, la corrente generata dalla valanga continuerà a fluire fino a quando il campo elettrico non si ridurrà al di sotto della soglia di \textit{breakdown} e sarà quindi possibile rilevare un successivo fotone \cite{Palubiak2011}. Per fermare l'evento a valanga, si utilizza un circuito \textit{quenching}, che nella sua realizzazione più semplice è costituito da un resistore di valore elevato in serie al fotodiodo. Nella figura \ref{fig:spad_VI} è rappresentata la caratteristica V-I di un diodo fotorivelatore a singolo fotone.
+\begin{figure}[tbh]
+	\centering
+	\includegraphics[width=0.7\linewidth]{./ImageFiles/spad_VI.png}
+	\caption{}. 
+	\label{fig:spad_VI}
+\end{figure}
+
+\todo{circuito di reset e queching e realizzazione in cmos}
 
 \subsection{CZT}
 
-
-\todo{tabella con proprietà dei fororilavatori da Spanoudaki, }
 \section{Principio di funzionamento}
 
 \section{TOF PET}
