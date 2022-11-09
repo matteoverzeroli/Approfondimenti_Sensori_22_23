@@ -136,15 +136,56 @@ Sebbene i PMT abbiano un alto guadagno, alta risoluzione nel tempo, basso \texti
 
 \newpage
 \subsection{Avalanche Photodiodes}
-Gli \textit{avalanche photodiodes} (APDs) sono diodi che strutturalmente sono simili ai p-n e p-i-n fotodiodi ma presentano un meccanismo di guadagno determinato da un eventi "a valanga". Essi sono fortemente polarizzati inversamente, generando un forte campo magnetico nella zona di svuotamento. In questo modo, quando un elettrone viene generato da un fotone incidente (effetto fotoelettrico) nella zona di svuotamento subisce una accelerazione tale che, all'impatto con gli atomi del reticolo del substrato, genera una coppia elettrone-lacuna (\Fig\ref{fig:adp}).  
-
+Gli \textit{avalanche photodiodes} (APDs) sono diodi che strutturalmente sono simili ai p-n e p-i-n fotodiodi ma presentano un meccanismo di guadagno determinato da un eventi "a valanga". Essi sono fortemente polarizzati inversamente (tipicamente \numrange[range-phrase=--]{100}{200}\,\unit{\volt}), generando un forte campo magnetico nella zona di svuotamento. In questo modo, quando un elettrone viene generato da un fotone incidente (effetto fotoelettrico) nella zona di svuotamento subisce una accelerazione tale che, all'impatto con gli atomi del reticolo del substrato circostante, genera una coppia elettrone-lacuna (\Fig\ref{fig:apd}). 
 \begin{figure}[tbh]
 	\centering
-	\includegraphics[width=0.8\linewidth]{./ImageFiles/ADP.jpg}
-	\caption{Effetto a valanga in un ADP. $\alpha_n^{-1}$ è la distanza media tra ogni evento di moltiplicazione e $V_{TOT}$ è la tensione di polarizzazione (sommata al potenziale di built-in). Immagine tratta da Wei Jiang et al. \cite{Jiang2019}.} 
-	\label{fig:adp}
+	a)
+	\begin{minipage}{.45\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/APD.jpg}
+	\end{minipage}
+	b)
+	\begin{minipage}{.45\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/apd_2D.jpg}
+	\end{minipage}
+	c)
+	\begin{minipage}{.45\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/APD2_German.png}
+	\end{minipage}
+	d)
+	\begin{minipage}{.45\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/APD3_German.png}
+	\end{minipage}
+	\caption{Effetto a valanga e struttura di un diodo APD. Nella figura a), $\alpha_n^{-1}$ è la distanza media tra ogni evento di moltiplicazione e $V_{TOT}$ è la tensione di polarizzazione (sommata al potenziale di built-in). Immagine tratta da Wei Jiang et al. \cite{Jiang2019} e \cite{ApdImage}.} 
+	\label{fig:apd}
 \end{figure}
-
+Il fenomeno si definisce \textit{ionizzazione per impatto} e si ripete a cascata per ogni elettrone generato. Il risultato è un incremento della corrente misurabile. Il guadagno di moltiplicazione $M$ è determinato dal coefficiente \textalpha (coefficiente di ionizzazione per impatto) per i portatori primari e indica il numero di coppie elettrone-lacuna generate per unità di lunghezza \cite{Jiang2019} dal portatore.
+L'effetto a valanga è un evento stocastico in quanto non è detto che tutti i portatori fotogenerati o iniettati portano allo stesso numero di eventi di moltiplicazione. Questa caratteristica è misurata dal parametro $F$ definito \textit{excess noise factor} che dipende dal rapporto tra i coefficienti di ionizzazione delle lacune e degli elettroni del materiale usato. Infatti, si definisce $k=\alpha_p / \alpha_n$. Valori tipici di $k$ sono circa di 0.02 per il silicio e 0.5 per APD con Ge. Per minimizzare il rumore, si tenderà a minimizzare il valore di $k$. Per questa ragione, la maggior parte dei diodi APD in commercio sono composti dal silicio. Più precisamente, la relazione tra $F$ e $k$ è descritta dall'equazione \cite{HAMAMATSU2021}\cite{Hossain2019}:
+\begin{equation}
+	F=Mk+(2-\frac{1}{M})(1-k)
+\end{equation}
+Tuttavia, il guadagno $M$ è influenzato da diversi fattori, quali la temperatura, la lunghezza d'onda della luce incidente e dalla tensione inversa applicata \ref{fig:apd_gain}. Quindi, anche $F$ dipenderà da questi fattori. 
+\begin{figure}[tbh]
+	\centering
+	a)
+	\begin{minipage}{.45\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/apd_gain_rv.jpg}
+	\end{minipage}
+	b)
+	\begin{minipage}{.45\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/apd_gain_temp.jpg}
+	\end{minipage}
+	c)
+	\begin{minipage}{.45\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/apd_wave1.jpg}
+	\end{minipage}
+	d)
+	\begin{minipage}{.45\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/apd_wave2.jpg}
+	\end{minipage}
+	\caption{Esempi di dipendenza del guadagno $M$ dalla tensione di polarizzazione inversa a), dalla temperatura b) e dipendenza dell'\textit{excess noise factor} dalla lunghezza d'onda della luce incidente c) e d). Immagine tratta da HAMAMATSU PHOTONICS K.K \cite{HAMAMATSU2021}.}
+	\label{fig:apd_gain}
+\end{figure}
+Le performance dei diodi a valanga sono anche determinati dalla \textit{spectral response}, \textit{quantum efficiency} (QE) e \textit{dark current}. La \textit{spectral response} descrive la corrente (A) generata per unita di potenza (W) della luce incidente per diverse lunghezze d'onda \cite{Jiang2019}. Anche la \textit{quantum efficiency} dipende dalla lunghezza d'onda e definisce la percentuale di fotoni che raggiunge la zona di svuotamento e genera un evento a valanga. Sebbene i APD abbiano un guadagno interno tipicamente minore (che può variare dai \numrange[range-phrase=--]{25}{1000}) dei PTM, stanno avendo molto successo negli ultimi anni, grazie al minor costo, alle ridotte dimensioni e alla insensibilità ai campi magnetici (caratteristica usata nei sistemi ibridi PET/MRI).
 
 \subsection{Silicon Photomultipliers}
 
