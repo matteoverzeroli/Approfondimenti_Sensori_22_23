@@ -177,19 +177,36 @@ Tuttavia, il guadagno $M$ è influenzato da diversi fattori, quali la temperatur
 \end{figure}
 Le performance dei diodi a valanga sono anche determinati dalla \textit{spectral response}, \textit{quantum efficiency} (QE) e \textit{dark current}. La \textit{spectral response} descrive la corrente (A) generata per unita di potenza (W) della luce incidente per diverse lunghezze d'onda \cite{Jiang2019}. Anche la \textit{quantum efficiency} dipende dalla lunghezza d'onda e definisce la percentuale di fotoni che raggiunge la zona di svuotamento e genera un evento a valanga. Sebbene i APD abbiano un guadagno interno tipicamente minore (che può variare dai \numrange[range-phrase=--]{25}{1000}) dei PTM, stanno avendo molto successo negli ultimi anni, grazie al minor costo, alle ridotte dimensioni e alla insensibilità ai campi magnetici (caratteristica usata nei sistemi ibridi PET/MRI).
 
+\clearpage
 \subsection{Silicon Photomultipliers}
-Per migliorare ulteriormente le performance dei fotorilevatori, sono stati introdotti i Silicon Photomultiplier (SiPM). Questi dispositivi sono costituiti da una matrice di microscopici pixel, connessi in parallelo, costituiti da APD che operano nella cosiddetta modalità Geiger (denominati anche SPAD). Un Single Photon Avalanche Diode (SPAD) è costituito da una giunzione p-n polarizzata inversamente con una tensione $V_{EX}$ maggiore della tensione di breakdown $V_{BR}$, operando nella modalità definita Geiger \cite{Jiang2019}. Il valore del campo elettrico nella regione di svuotamento è tale che la corrente generata a causa di un singolo fotone assume valori molto alti, producendo un impulso di corrente. Inoltre, la corrente generata dalla valanga continuerà a fluire fino a quando il campo elettrico non si ridurrà al di sotto della soglia di \textit{breakdown} e sarà quindi possibile rilevare un successivo fotone \cite{Palubiak2011}. Per fermare l'evento a valanga, si utilizza un circuito \textit{quenching}, che nella sua realizzazione più semplice è costituito da un resistore di valore elevato in serie al fotodiodo. Nella figura \ref{fig:spad_VI} è rappresentata la caratteristica V-I di un diodo fotorivelatore a singolo fotone.
+Per migliorare ulteriormente le performance dei fotorilevatori, sono stati introdotti i Silicon Photomultiplier (SiPM). Questi dispositivi sono costituiti da una matrice di microscopici pixel, connessi in parallelo, costituiti da APD che operano nella cosiddetta modalità Geiger (denominati anche SPAD). Un Single Photon Avalanche Diode (SPAD) è costituito da una giunzione p-n polarizzata inversamente con una tensione $V_{EX}$ maggiore della tensione di breakdown $V_{BR}$, operando nella modalità definita Geiger \cite{Jiang2019}. Il valore del campo elettrico nella regione di svuotamento è tale che la corrente generata a causa di un singolo fotone assume valori molto alti, producendo un impulso di corrente. Inoltre, la corrente generata dalla valanga continuerà a fluire fino a quando il campo elettrico non si ridurrà al di sotto della soglia di \textit{breakdown} e sarà quindi possibile rilevare un successivo fotone \cite{Palubiak2011}. Per fermare l'evento a valanga, si utilizza un circuito \textit{quenching}, che nella sua realizzazione più semplice è costituito da un resistore di valore elevato in serie al fotodiodo. Nella figura \ref{fig:spad_VI}a) è rappresentata la giunzione p-n polarizzata inversamente e la resistenza R\sub{Q} di quenching. Nella figura \ref{fig:spad_VI}b) è descritta la caratteristica V-I di un diodo fotorivelatore a singolo fotone. Inizialmente, il diodo è spento (1), ossia attraverso il diodo scorre solo la corrente inversa. Successivamente, quando un elettrone entra nella zona di svuotamento, il fenomeno a valanga genera una corrente di valore elevato (2). A causa della presenza della resistenza R\sub{Q} (di valore elevato), la corrente generata determina una caduta di potenziale che porta la tensione ai capi del diodo al di sotto della tensione di brakdown (3). L'evento a valanga quindi si interrompe e la tensione ai capi del diodo si riporta alla tensione di polarizzazione iniziale dopo un tempo definito di \textit{hold off}, che dipende la costante di tempo $\tau_{Hoff}=R_QC_{SPAD}$, dove $C_SPAD$ è la capacità parassita associata al diodo.
 \begin{figure}[tbh]
 	\centering
-	\includegraphics[width=0.7\linewidth]{./ImageFiles/spad_VI.png}
-	\caption{}. 
+	a)
+	\begin{minipage}{.45\textwidth}
+		\includegraphics[width=0.8\linewidth]{./ImageFiles/spad_scheme.png}
+	\end{minipage}
+	b)
+	\begin{minipage}{.45\textwidth}
+		\includegraphics[width=\linewidth]{./ImageFiles/spad_VI.png}
+	\end{minipage}
+	\caption{Principio di funzionamento di un \textit{single-photon avalanche diode} (SPAD): (a) Processo a valanga in una giunzione p-n polarizzata inversamente; (b) Caratteristica tensione corrente di un diodo SPAD. Immagine tratta da Jiang W. et al. \cite{Jiang2019}.} 
 	\label{fig:spad_VI}
 \end{figure}
 
+Dal momento che il guadagno di un diodo fotorivelatore a singolo fotone è teoricamente infinito, ha un funzionamento simile a un dispositivo digitale, contando i fotoni incidenti, a differenza dei APDs che in uscita producono una corrente amplificata in funzione dei fotoni incidenti \cite{Jiang2019}. Come anche i PMT, il rumore associato ai diodi SPAD è caratterizzato dal numero di conteggi di buio (DCR), definito come il numero di eventi a valanga in un secondo generati in condizioni di buio. Questi eventi stocastici, possono essere causati da differenti meccanismi. A temperatura ambiente, il fattore che influenza di più il DCR è il meccanismo di generazione-ricombinazione dovuto a portatori liberi generati per agitazione termica. Per cui, questo parametro aumenta all'aumentare della temperatura operativa del diodo. Inoltre, il numero di conteggi aumenta anche all'aumentare della sovratensione $V_{EX}$ applicata \cite{DiFranco2002}, aumentando la probabilità di innescare una valanga e il volume della zona svuotata. Inoltre, un contributo significativo al DCR può essere dato dall'effetto di \textit{afterpulsing} \cite{DiFranco2002}, il quale è causato da portatori provenienti dal precedente evento a valanga, che vengono intrappolati, da difetti presenti nel reticolo del substrato, e rilasciati dopo un certo intervallo di tempo. Se esso è superiore al tempo di \textit{hold off}, essi possono produrre a loro volta un valanga, generando afterpulsing. L'afterpulsing dipende quindi dalla quantità totale di carica che partecipa alla valanga, che aumenta all'aumentare della capacità associata alla giunzione p-n \cite{Palubiak2011}.Inoltre, il fenomeno diventa più evidente all'aumentare del tempo di spegnimento della valanga e all'intensità della corrente, proporzionale a sua volta alla sovratensione applicata aumenta. Un altro parametro che definisce le caratteristiche di un diodo SPAD è l'efficienza di fotorivelazione (PDE), che dipende dal parametro geometrico del \textit{fill-factor} (FF), la probabilità di assorbimento (che dipende dalla lunghezza d'onda) e della probabilità di innesco di un evento a valanga.
+
+
+
+
+
 \todo{circuito di reset e queching e realizzazione in cmos}
 
+\clearpage
 \subsection{CZT}
 
+\clearpage
 \section{Principio di funzionamento}
 
+\clearpage
 \section{TOF PET}
