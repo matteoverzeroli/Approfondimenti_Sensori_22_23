@@ -248,4 +248,42 @@ Una acquisizione PET sarà quindi costituita da un numero di coppie di rilevator
 Il segnale che proviene da ogni rivelatore, dopo essere stato opportunamente elaborato, segue due percorsi distinti: uno di misura dell'ampiezza del segnale e uno di \textit{timing} \cite{Volterrani2010}. Nella sezione di timing, viene generato un segnale, attraverso dei discriminatori, che contiene l'informazione sul tempo di arrivo del raggio \textgamma. Se durante una finestra temporale di circa \SI{10}{\nano\second} un secondo raggio \textgamma colpisce il rilevatore in posizione opposta, viene registrata una coincidenza e il circuito di coicidenza segnale che l'evento è da considerarsi valido. Contemporaneamente, viene analizzata l'ampiezza del segnale. L'acquisizione viene scartata se il segnale misurato ha un'energia troppo bassa. I sistemi PET permettono quindi una ricostruzione fisiologica con un'alta sensibilità e una buona risoluzione spaziale (di alcuni millimetri) che dipende anche dalle dimensioni del rilevatore.
 
 \subsection{TOF PET}
-Nelle PET convenzionali non è possibile conoscere esattamente la posizione dell'evento di annichilazione: ogni punto che appartiene alla LoR avrà uguale probabilità di aver generato tale evento. Un possibile modo di conoscere con maggiore precisione la posizione del punto di annichilazione è quella di misurare la differenza temporale tra la rivelazione dei raggi \textgamma nella rispettiva coppia di sensori. I raggi gamma si muovo circa alla velocità della luce ossia di $3 \times 10^8 \text{m/s}$ ossia $30  \; \text{cm/ns}$. Per fare ciò è necessario che il tempo tra due eventi coincidenti venga misurato con una precisione nell'ordine dei \unit{\pico\second).
+Nelle PET convenzionali non è possibile conoscere esattamente la posizione dell'evento di annichilazione: ogni punto che appartiene alla LoR avrà uguale probabilità di aver generato tale evento. Un possibile modo di conoscere con maggiore precisione la posizione del punto di annichilazione è quella di misurare la differenza temporale tra la rivelazione dei raggi \textgamma nella rispettiva coppia di sensori. I raggi gamma si muovo circa alla velocità della luce ossia di $3 \times 10^8 \text{m/s}$ ossia $30  \; \text{cm/ns}$. Per fare ciò è necessario che il tempo tra due eventi coincidenti venga misurato con una precisione nell'ordine dei \unit{\pico\second}. Una volta ricavato l'intervallo di tempo $\Delta t$ tra i segnali rilevati da una coppia di rilevatori, è possibile ricavare la distanza $\Delta x$, del punto di annichilazione rispetto al centro del sistema PET, secondo la seguente formula (\Fig\ref{fig:tof_distribution})\cite{Spanoudaki2010}:
+\begin{equation}
+	\Delta x=\frac{c\Delta t}{2},
+\end{equation}
+dove $c$ rappresenta la velocità della luce nel vuoto.
+\begin{figure}[tbh]
+	\centering
+	\includegraphics[width=\linewidth]{./ImageFiles/tof_distribution.jpg}
+	\caption{La limitata risoluzione temporale associa alla stima della posizione stimata \textDelta x con varianza $\sigma^2_{\Delta x}$. Immagine tratta da Spanoudaki V. e Levin C.\cite{Spanoudaki2010}}
+	\label{fig:tof_distribution}
+\end{figure}
+A causa della limitata risoluzione temporale dei rilevatori PET l'intervallo di tempo \textDelta t è caratterizzato da incertezza con una varianza $\sigma^2_{\Delta x}$, definendo una distribuzione Gaussiana sulla possibile posizione dell'evento di annichilazione (\Fig\ref{fig:tof_distribution}). Il miglioramento in termini si SNR nella ToF PET è dato da \cite{Jiang2019}:
+\begin{equation}
+	\frac{SNR_{ToF}}{SNR_{Non-ToF}}=\sqrt{\frac{2D}{c \times \Delta t}},
+	G=\frac{2D}{c\times\Delta t},
+\end{equation}
+dove $D$ è il diametro dello scanner, $c$ è la velocità della luce nel vuoto, $\Delta t$ è la differenza di arrivo definito \textit{coincidence resolving time} (CRT) e $G$ è il guadagno della sensitività  effettiva. Per esempio, se si considera un sistema che vuole raggiungere un CRT di \SI{300}{\pico\second}, con un diametro del soggetto di \SI{40}{\centi\meter}, il rapporto segnale-rumore aumenta di circa 3 volte e la sensitività effettiva aumenta di circa 9 volte. L'incremento di SNR e della sensitività permette di migliorare il rapporto segnale-rumore della immagine PET finale. Nell'immagine \cite{Karp2006} è possibile notare il miglioramento della qualità dell'immagine, che permette di mettere in evidenza una presunta lesione osservata tramite CT (tomografia computerizzata) e non visibile da una tradizionale PET.
+\begin{figure}[tbh]
+	\centering
+	\includegraphics[width=\linewidth]{./ImageFiles/tof_image.jpg}
+	\caption{Una lesione sospetta che non viene identificata nella non-ToF PET ma visibile nella ToF PET. Immagine tratta da Joel S. Karp.\cite{Karp2006}}
+	\label{fig:tof_image}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
