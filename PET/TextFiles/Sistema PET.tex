@@ -2,7 +2,7 @@
 Nella figura \ref{fig:PET_imaging_system} è rappresentato un sistema di imaging PET. Per rilevare i raggi gamma derivanti dal processo di annichilazione \textit{elettrone-positrone}, viene utilizzato un rilevatore a scintillazione, composto da uno scintillatore e un fotorilevatore. 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{./ImageFiles/PET_imaging_system}
+	\includegraphics[width=0.45\linewidth]{./ImageFiles/PET_imaging_system}
 	\caption{Principio di funzionamento di un sistema per tomografia ad emissione di positroni (PET). Un anello di sensori rilevano una coppia di raggi gamma con un'energia di \SI{511}{\kilo\electronvolt} (frecce rosse) che derivano dalla annichilazione di un elettrone con un positrone emesso da un radiomarcatore (FDG). Immagine tratta da Jiang W. et al \cite{Jiang2019}.}
 	\label{fig:PET_imaging_system}
 \end{figure}
@@ -22,9 +22,9 @@ Gli scintillatori utilizzati nei sistemi di acquisizione PET possono essere diff
 	\item light output.
 \end{itemize}
 Lo \textbf{stopping power} rappresenta l'inverso della distanza media percorsa dai fotoni prima di trasferire l'energia nel cristallo e dipende dalla densità e dal numero atomico effettivo del materiale. \`E preferibile che questo parametro sia alto (ossia poca distanza percorsa dai fotoni), in modo da avere più interazioni con i fotoni emessi dall'annichilazione \textit{elettrone-positrone}. La \textbf{decay constant}, invece, descrive la durata dell'impulso luminoso generato dal cristallo. \`E opportuno utilizzare cristalli con bassi valori di constante di decadimento in quanto permettono di rilevare un numero maggiore di impulsi a pari unità di tempo. Inoltre, è utile che il materiale abbia una buona risoluzione di energia (\textbf{energy resolution}), che descrive la capacità di distinguere raggi gamma con differenti energie. Infatti, nell'immagine \ref{fig:photo_peak} è mostrato lo spettro di distribuzione di energia, costruito misurando il numero di eventi rilevati con una certa ampiezza in funzione dell'energia depositata sul cristallo.
-\begin{figure}[tbh]
+\begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.35\linewidth]{./ImageFiles/Photo peak.jpg}
+	\includegraphics[width=0.38\linewidth]{./ImageFiles/Photo peak.jpg}
 	\caption{Esempio di uno spettro di energia, definito come il numero di eventi misurati con una certa ampiezza in funzione della energia depositata sul cristallo. Immagine tratta da Bailey D et al. \cite{Bailey2014}.}
 	\label{fig:photo_peak}
 \end{figure}
@@ -75,10 +75,11 @@ Questi \textit{detectors} modulari sono poi uniti per formare un anello al centr
 	\item l'energia dell'impulso luminoso generato.
 \end{itemize}
 Di seguito si analizzano alcuni fotorivelatori utilizzati nei sistemi PET.
+\clearpage
 
 \subsection{Photomultiplier Tubes}
 Nella figura \ref{fig:ptm} è mostrato lo schema della struttura di un fotomoltiplicatore PMT (\textit{Photomultiplier Tube}).
-\begin{figure}[tbh]
+\begin{figure}[b!]
 	\centering
 	a)
 	\begin{minipage}{.70\textwidth}
@@ -97,17 +98,17 @@ Esso è composto da un \textit{fotocatodo}, una serie di elettrodi chiamati \tex
 	G = f^n,
 \end{equation}
 dove $f$ è il fattore di emissione di elettroni secondari di ogni dinodo e n è il numero di dinodi. Valori tipici delle tensioni di alimentazioni sono  compresi nell'intervallo di \numrange[range-phrase=--]{1000}{2000}\,\unit{\kilo\volt} e il guadagno $G$ raggiunto è di circa di $G=10^6$. Per determinare la posizione dell'interazione \textit{fotone-cristallo scintillatore}, è possibile utilizzare una struttura definita a \textit{block detector} (\Fig\ref{fig:block_detector}).
-\begin{figure}[tbh]
+\begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\linewidth]{./ImageFiles/block_detector.jpg}
 	\caption{Schema della struttura di un \textit{block detector} con piccoli cristalli scintillatori raggruppati in blocchi accoppiati a quattro PMT. Immagine tratta da Schmitz et al. \cite{Schmitz2013ThePO}.} 
 	\label{fig:block_detector}
 \end{figure}
 Viene ricavato da un cristallo una matrice di blocchi scitillatori (di dimensioni di qualche millimetro), suddivisi da un materiale riflettente. Gli impulsi luminosi emessi vengono letti da 4 (o più) PMT differenti (\Fig\ref{fig:block_detector_cube}).
-\begin{figure}[tbh]
+\begin{figure}[b]
 	\centering
 	\includegraphics[width=0.6\linewidth]{./ImageFiles/block_detector_lightoncube.jpg}
-	\caption{Distribuzione della luce in un cristallo scintillatore suddiviso in una matrice di cristalli. Immagine tratta da Terry Jones e David Townsend \cite{Jones2017}}. 
+	\caption{Distribuzione della luce in un cristallo scintillatore suddiviso in una matrice di cristalli. Immagine tratta da Terry Jones e David Townsend \cite{Jones2017}.} 
 	\label{fig:block_detector_cube}
 \end{figure}
 Confrontando le intensità rilevate dai quattro PMT con valori contenute in tabelle ricavate sperimentalmente, è possibile determinare la posizione del fotone incidente sul piano tramite le seguenti equazioni \cite{Bailey2014} (logica di Anger):
@@ -124,28 +125,27 @@ Un altro parametro di interesse per descrivere un PMT è la \textit{Photon detec
 
 Sebbene i PMT abbiano un alto guadagno, alta risoluzione nel tempo, basso \textit{noise} e una QE accettabile, presentano alcuni svantaggi. Infatti, sono molto fragili e sensibili a vibrazioni meccaniche e disturbi elettromagnetici. Inoltre, necessitano di alte tensioni di alimentazione. Per questo motivo sono state sviluppate soluzioni a stato solido come gli ADP e i SiPM.
 
-\newpage
+\clearpage
 \subsection{Avalanche Photodiodes}
-Gli \textit{avalanche photodiodes} (APDs) sono diodi che strutturalmente sono simili ai fotodiodi realizzati con una giunzione p-n o p-i-n, ma presentano un meccanismo di guadagno determinato da un evento "a valanga". Essi sono fortemente polarizzati inversamente (tipicamente \numrange[range-phrase=--]{100}{200}\,\unit{\volt}), generando un forte campo elettrico nella zona di svuotamento. In questo modo, quando un elettrone viene generato da un fotone incidente (effetto fotoelettrico) nella zona di svuotamento subisce una accelerazione tale che, all'impatto con gli atomi del reticolo del substrato circostante, genera una coppia elettrone-lacuna (\Fig\ref{fig:apd}). 
+Gli \textit{avalanche photodiodes} (APDs) sono diodi che strutturalmente sono simili ai fotodiodi realizzati con una giunzione p-n o p-i-n (\Fig\ref{fig:apd_pn}), ma presentano un meccanismo di guadagno determinato da un evento "a valanga". 
+\begin{figure}[b]
+	\centering
+	\includegraphics[width=0.35\linewidth]{./ImageFiles/apd_2D.jpg}
+	\caption{Struttura base di una giunzione di un APD. Immagine tratta da \cite{ApdImage}.}
+	\label{fig:apd_pn}
+\end{figure}
+Essi sono fortemente polarizzati inversamente (tipicamente \numrange[range-phrase=--]{100}{200}\,\unit{\volt}), generando un forte campo elettrico nella zona di svuotamento. In questo modo, quando un elettrone viene generato da un fotone incidente (effetto fotoelettrico) nella zona di svuotamento subisce una accelerazione tale che, all'impatto con gli atomi del reticolo del substrato circostante, genera una coppia elettrone-lacuna (\Fig\ref{fig:apd}). 
 \begin{figure}[tbh]
 	\centering
 	a)
-	\begin{minipage}{.45\textwidth}
+	\begin{minipage}{.60\textwidth}
 		\includegraphics[width=\linewidth]{./ImageFiles/APD.jpg}
 	\end{minipage}
 	b)
-	\begin{minipage}{.45\textwidth}
-		\includegraphics[width=\linewidth]{./ImageFiles/apd_2D.jpg}
-	\end{minipage}
-	c)
-	\begin{minipage}{.45\textwidth}
+	\begin{minipage}{.30\textwidth}
 		\includegraphics[width=\linewidth]{./ImageFiles/APD2_German.png}
 	\end{minipage}
-	d)
-	\begin{minipage}{.45\textwidth}
-		\includegraphics[width=\linewidth]{./ImageFiles/APD3_German.png}
-	\end{minipage}
-	\caption{Effetto a valanga e struttura di un diodo APD. Nella figura (a), $\alpha_n^{-1}$ è la distanza media tra ogni evento di moltiplicazione e $V_{TOT}$ è la tensione di polarizzazione (sommata al potenziale di built-in). Immagine tratta da Wei Jiang et al. \cite{Jiang2019} e \cite{ApdImage}.} 
+	\caption{Effetto a valanga e struttura di un diodo APD. Nella figura (a), $\alpha_n^{-1}$ è la distanza media tra ogni evento di moltiplicazione e $V_{TOT}$ è la tensione di polarizzazione (sommata al potenziale di built-in); (b) Profilo del campo elettrico lungo la giunzione. Immagine tratta da Wei Jiang et al. \cite{Jiang2019} e \cite{ApdImage}.} 
 	\label{fig:apd}
 \end{figure}
 Il fenomeno si definisce \textit{ionizzazione per impatto} e si ripete a cascata per ogni elettrone generato. Il risultato è un incremento della corrente misurabile che attraversa il diodo. Il guadagno di moltiplicazione $M$ è determinato dal coefficiente \textalpha\ (coefficiente di ionizzazione per impatto) e indica il numero di coppie elettrone-lacuna generate per unità di lunghezza \cite{Jiang2019} dai portatori primari.
@@ -180,7 +180,7 @@ Le performance dei diodi a valanga sono anche determinati dalla \textit{spectral
 \clearpage
 \subsection{Silicon Photomultipliers}
 Per migliorare ulteriormente le performance dei fotorilevatori, sono stati introdotti i Silicon Photomultiplier (SiPM). Questi dispositivi sono costituiti da una matrice di microscopici pixel, connessi in parallelo, costituiti da APD che operano nella cosiddetta modalità Geiger. Essi sono definiti Single Photon Avalanche Diode (SPAD). Uno SPAD è costituito da una giunzione p-n polarizzata inversamente con una tensione $V_{EX}$ maggiore della tensione di breakdown $V_{BR}$, operando nella cosiddetta modalità Geiger \cite{Jiang2019}. Il valore del campo elettrico nella regione di svuotamento è tale che la corrente generata a causa di un singolo fotone assume valori molto alti, producendo un impulso di corrente. Inoltre, la corrente generata dalla valanga continuerà a fluire fino a quando il campo elettrico non sarà ridotto a un valore inferiore della soglia di \textit{breakdown}. A questo punto, sarà quindi possibile rilevare un successivo fotone \cite{Palubiak2011}. Per fermare l'evento a valanga, si utilizza un circuito di \textit{quenching}, che nella sua realizzazione più semplice è costituito da un resistore di valore elevato in serie al fotodiodo. Nella figura \ref{fig:spad_VI}(a) è rappresentata la giunzione p-n polarizzata inversamente e la resistenza R\sub{Q} di quenching. Nella figura \ref{fig:spad_VI}(b) è descritta la caratteristica V-I di un diodo fotorivelatore a singolo fotone. Inizialmente, il diodo è spento (1), ossia attraverso il diodo scorre una corrente pari al valore della corrente inversa. Successivamente, quando un elettrone entra nella zona di svuotamento, il fenomeno a valanga genera una grande corrente (2). A causa della presenza della resistenza R\sub{Q} (di valore elevato), la corrente generata determina una caduta di potenziale che porta la tensione ai capi del diodo al di sotto della tensione di brakdown (3). L'evento a valanga quindi si interrompe e la tensione ai capi del diodo si riporta alla tensione di polarizzazione iniziale dopo un tempo, definito di \textit{hold off}, che dipende la costante di tempo $\tau_{Hoff}=R_QC_{SPAD}$, dove $C_{SPAD}$ è la capacità parassita associata al diodo.
-\begin{figure}[tbh]
+\begin{figure}[b!]
 	\centering
 	a)
 	\begin{minipage}{.45\textwidth}
@@ -193,55 +193,56 @@ Per migliorare ulteriormente le performance dei fotorilevatori, sono stati intro
 	\caption{Principio di funzionamento di un \textit{single-photon avalanche diode} (SPAD): (a) Processo a valanga in una giunzione p-n polarizzata inversamente; (b) Caratteristica tensione corrente di un diodo SPAD. Immagine tratta da Jiang W. et al. \cite{Jiang2019}.} 
 	\label{fig:spad_VI}
 \end{figure}
-
+\newpage
 Dal momento che il guadagno di un diodo fotorivelatore a singolo fotone è teoricamente infinito, esso ha un funzionamento simile a un dispositivo digitale con cui è possibile contare i fotoni incidenti a partire dagli impulsi di corrente misurati. Gli SPAD differiscono per questo motivo dai tipici diodi APD, i quali in uscita producono una corrente amplificata in funzione dei fotoni incidenti \cite{Jiang2019}. Come anche i PMT, il rumore associato ai diodi SPAD è caratterizzato dal numero di conteggi di buio (DCR), definito come il numero di eventi a valanga in un secondo generati in condizioni di buio. Questi eventi stocastici possono essere causati da differenti meccanismi. A temperatura ambiente, il fattore che influenza di più il DCR è il meccanismo di generazione-ricombinazione dovuto a portatori liberi generati per agitazione termica. Per cui, il numero di conteggio di buio aumenta all'aumentare della temperatura operativa del diodo. Inoltre, il numero di conteggi aumenta anche all'aumentare della sovratensione $V_{EX}$ applicata \cite{DiFranco2002}, aumentando la probabilità di innescare una valanga e il volume della zona svuotata. Inoltre, un contributo significativo al DCR può essere dato dall'effetto di \textit{afterpulsing} \cite{DiFranco2002}. Esso è causato da portatori provenienti dal precedente evento a valanga che vengono intrappolati da difetti presenti nel reticolo del substrato e rilasciati dopo un certo intervallo di tempo. Se l'intervallo di tempo è superiore al tempo di \textit{hold off}, essi possono produrre a loro volta un valanga, generando afterpulsing. L'afterpulsing dipende quindi dalla quantità totale di carica che partecipa alla valanga, che aumenta all'aumentare della capacità associata alla giunzione p-n polarizzata inversamente \cite{Palubiak2011}. Inoltre, il fenomeno diventa più evidente all'aumentare del tempo di spegnimento della valanga e all'intensità della corrente, proporzionale a sua volta alla sovratensione applicata aumenta. Un altro parametro che definisce le caratteristiche di un diodo SPAD è l'efficienza di fotorivelazione (PDE), che dipende dal parametro geometrico del \textit{fill-factor} (FF), dalla probabilità di assorbimento (che dipende dalla lunghezza d'onda) e della probabilità di innesco di un evento a valanga.
 
 I diodi SPAD sono tipicamente realizzati in tecnologia \textit{complementary metal-oxide semiconductor} (CMOS), che permettono di miniaturizzare la struttura del diodo e ridurre i costi di produzione. Nella figura \ref{fig:cmos}(a) si mostra la sezione di una tipica giunzione p-n.
-\begin{figure}[tbh]
+\begin{figure}[b]
 	\centering
 	\includegraphics[width=0.8\linewidth]{./ImageFiles/cmos.jpg}
 	\caption{Sezione trasversale di possibili realizzazione di un diodo SPAD. (a) Tipica giunzione p-n. (b) Tipica struttura di un diodo SPAD e (c) layout di uno SPAD con dimensioni ridotte. Le linee tratteggiate mostrano la regione di svuotamento, mentre le frecce rosse la direzione del campo elettrico principale. Immagine tratta da Palubiak D. et al. \cite{Palubiak2011}.}
 	\label{fig:cmos}
 \end{figure} 
 Sebbene questa semplice strutta possa essere utilizzata per realizzare un diodo SPAD, presenta un principale problema: il campo elettrico negli angoli periferici della giunzione (frecce rosse nella figura) raggiunge il valore di breakdown prima dell'area laterale \cite{Palubiak2011}. Questo fenomeno è definito come \textit{premature edge breakdown} (PEB). A causa di questo fenomeno non è possibile ottenere un campo elettrico uniforme lungo tutta la regione di svuotamento, influenzando negativamente le performance del diodo. Per questo motivo, sarebbe preferibile utilizzare un andamento circolare della giunzione. Tuttavia, nella tecnologia CMOS non è tipicamente realizzabile. Per eliminare questo fenomeno, è possibile inserire una uno strato drogato p agli angoli della giunzione in modo da aumentare la tensione di breakdown gli angoli (\Fig\ref{fig:cmos}(b)). Lo strato p-well viene isolato dal substrato tramite una regione drogata n (deep n-well layer). Per cui, lo strato p-well aggiunto definisce un anello (denominato \textit{guard ring}) intorno alla regione n-well. Tuttavia, se le regioni p-well si avvicinano troppo, il diodo si comporta di nuovo come una classica giunzione p-n (\Fig\ref{fig:cmos}(c)) rendendo vani gli sforzi per eliminare la PEB. Un esempio di soluzione al problema è presentato in Palubiak D. et al. \cite{Palubiak2011}. Nella figura \ref{fig:cmos_2} è rappresentato il dispositivo SPAD realizzato con tecnologia a \SI{130}{\nano\meter}. In questo sensore, la regione n-well che costituisce il guard-ring (\Fig\ref{fig:cmos_2}(a)), non viene estesa fino a toccare lo strato di deep n-well. Questa modifica permette di passare dal classico SPAD (\Fig\ref{fig:cmos}(b)) che utilizza una diodo p+/n-well a un diodo n+/p-well, dove la regione di fotorivelazione è costituita da una zona drogata n+, rendendo possibile una ulteriore miniaturizzazione del sensore controllando però la PEB.
-\begin{figure}[tbh]
+\begin{figure}[b]
 	\centering
 	\includegraphics[width=0.8\linewidth]{./ImageFiles/cmos_2.jpg}
 	\caption{(a) Vista trasversale del diodo SPAD, che mostra come l'area sensibile è confinata solamente nella zona sottostante la regione drogata n+. (b) Dimensioni del dispositivo SPAD realizzato. Immagine tratta da Palubiak D. et al. \cite{Palubiak2011}.} 
 	\label{fig:cmos_2}
 \end{figure} 
 
-Una volta che un fotone ha generato l'evento a valanga è possibile vedere un impulso di corrente in uscita al diodo, che può essere rappresentato da un opportuno circuito come un impulso rettangolare. Come già sottolineato, per bloccare la valanga è necessario diminuire la tensione ai capi del diodo al di sotto della tensione di breakdown. L'intervallo tra l'inizio e la fine di un effetto a valanga è chiamato \textit{quenching time}. Il \textit{reset time} si riferisce invece al tempo necessario per riportare il diodo alla tensione di polarizzazione inversa iniziale $V_{BR}+V_{EX}$. I circuiti di quench e reset si dividono in due categorie: PQR (passive quench and reset) e AQR (active quench reset). Un circuito PQR è costituito da una resistenza di valore elevato (\numrange[range-phrase=--]{50}{500}\,\unit{\kilo\ohm}) il cui principio di funzionamento è già stato precedentemente descritto. Questo circuito è stato largamente utilizzato nella progettazione di pixel SPAD poiché occupa una piccola area che determina un alto FF e una ridotta capacità parassita. 
-\begin{figure}[tbh]
+Una volta che un fotone ha generato l'evento a valanga è possibile vedere un impulso di corrente in uscita al diodo, che può essere rappresentato da un opportuno circuito come un impulso rettangolare. Come già sottolineato, per bloccare la valanga è necessario diminuire la tensione ai capi del diodo al di sotto della tensione di breakdown. L'intervallo tra l'inizio e la fine di un effetto a valanga è chiamato \textit{quenching time}. Il \textit{reset time} si riferisce invece al tempo necessario per riportare il diodo alla tensione di polarizzazione inversa iniziale $V_{BR}+V_{EX}$. I circuiti di quench e reset si dividono in due categorie: PQR (passive quench and reset) e AQR (active quench reset). Un circuito PQR è costituito da una resistenza di valore elevato (\numrange[range-phrase=--]{50}{500}\,\unit{\kilo\ohm}) il cui principio di funzionamento è già stato precedentemente descritto. Questo circuito è stato largamente utilizzato nella progettazione di pixel SPAD poiché occupa una piccola area che determina un alto FF e una ridotta capacità parassita (\Fig\ref{fig:pqr_array}). 
+\begin{figure}[t]
 	\centering
 	\includegraphics[width=0.6\linewidth]{./ImageFiles/pqr_pixels.jpg}
 	\caption{Schema generico di un array SiPM con un circuito di passive quench and reset. Immagine tratta da Spanoudaki V. e Levin \cite{Spanoudaki2010}.}
-	\label{fig:aqr}
+	\label{fig:pqr_array}
 \end{figure} 
 Tuttavia, i PQR hanno alcuni svantaggi. In particolare, a causa del valore elevato della resistenza di queching, hanno una costante di tempo alta associata alla carica della capacità della giunzione, limitando la frequenza operativa di utilizzo del sensore. Per questo motivo sono stati introdotti, i circuiti attivi AQR (\Fig\ref{fig:aqr}).
-\begin{figure}[tbh]
+\begin{figure}[b]
 	\centering
-	\includegraphics[width=0.4\linewidth]{./ImageFiles/aqr.jpg}
+	\includegraphics[width=0.35\linewidth]{./ImageFiles/aqr.jpg}
 	\caption{Schema semplificato di un circuito \textit{active quench-reset} (AQR). Immagine tratta da Palubiak D. et al. \cite{Palubiak2011}.}
 	\label{fig:aqr}
 \end{figure} 
 Quando è si sviluppa una valanga, inizia una fase di quenching passivo, come nei circuiti PQR. Dopo un certo intervallo di tempo, che dipende da una determinata tensione di soglia (definita dai componenti presenti nel circuito), il \textit{quench control} attiva un transistor nMOS che scarica il diodo a una velocità maggiore. Dopo un certo intervallo di tempo, il circuito di \textit{active reset control} accenderà un transistor pMOS, per un breve istante che riporta la tensione di polarizzazione al valore iniziale (\Fig\ref{fig:aqr_2}).
 \begin{figure}[tbh]
 	\centering
-	\includegraphics[width=0.6\linewidth]{./ImageFiles/aqr_2.jpg}
+	\includegraphics[width=0.5\linewidth]{./ImageFiles/aqr_2.jpg}
 	\caption{Andamento nel tempo della tensione V\sub{C} ai capi del diodo. Immagine tratta da Palubiak D. et al. \cite{Palubiak2011}.}
 	\label{fig:aqr_2}
 \end{figure} 
 I circuiti attivi aumentano la velocità operativa del diodo ma introducono complessità, riducendo il fill-factor e aumentando la capacità parassita associata al circuito.
+\newpage
 
 Affiancando diversi SPAD in modo da formare una matrice e progettando un opportuno circuito di lettura, si definisce un sensore in grado di rilevare fotoni nel piano. Questo tipo di sensore viene definito Analog SiPM. Con il progresso della tecnologia di fabbricazione dei diodi SPAD e grazie alla miniaturizzazione dei componenti nei processi CMOS, sono stati progettati i Digital SiPM, in cui l'elettronica di lettura è direttamente inserita nel sensore. Ciò comporta un ulteriore miglioramento nelle performance del sensore (che riduce il deadtime) e semplifica alcuni circuiti necessari al condizionamento dei segnali utilizzati per la lettura dei segnale in uscita agli Analog SiPM.
 
 \clearpage
 \section{Principio di funzionamento}
 Gli scintillatori e i fotorivelatori fino a qui analizzati, vengono utilizzati nella tecnica di imagining della Positron Emission Tomography (PET). Inizialmente, viene somministrato al paziente un radiomarcatore che emette positroni. Esso si accumula nelle zone in cui vengono consumati più zuccheri. Quando viene emesso un positrone, questo annichila con un elettrone e emette una coppia di fotoni con energia pari a \SI{511}{\kilo\electronvolt} con angolazione di \SI{180}{\degree}. L'acquisizione PET è basata sulla simultanea rivelazione di fotoni da una coppia di sensori. I rivelatori sono posti in una struttura a cilindro al cui centro il paziente (o in generale l'oggetto di interesse) viene inserito (\Fig\ref{fig:pet}).
-\begin{figure}[tbh]
+\begin{figure}[b!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{./ImageFiles/PET.jpg}
+	\includegraphics[width=0.7\linewidth]{./ImageFiles/PET.jpg}
 	\caption{Principio base della PET: un anello di sensori posti attorno al paziente. Immagine tratta da Spanoudaki V. e Levin \cite{Spanoudaki2010}.}
 	\label{fig:pet}
 \end{figure} 
