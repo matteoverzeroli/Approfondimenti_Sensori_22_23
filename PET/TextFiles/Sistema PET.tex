@@ -3,16 +3,16 @@ Nella figura \ref{fig:PET_imaging_system} è rappresentato un sistema di imaging
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\linewidth]{./ImageFiles/PET_imaging_system}
-	\caption{Principio di funzionamento di un sistema per tomografia ad emissione di positroni (PET). Un anello di sensori rilevano una coppia di raggi gamma con un'energia di \SI{511}{3\kilo\electronvolt} (frecce rosse) che derivano dalla annichilazione di un elettrone con un positrone emesso da un radiotracciante (FDG). Immagine tratta da Jiang W. et al \cite{Jiang2019}.}
+	\caption{Principio di funzionamento di un sistema per tomografia ad emissione di positroni (PET). Un anello di sensori rilevano una coppia di raggi gamma con un'energia di \SI{511}{\kilo\electronvolt} (frecce rosse) che derivano dalla annichilazione di un elettrone con un positrone emesso da un radiomarcatore (FDG). Immagine tratta da Jiang W. et al \cite{Jiang2019}.}
 	\label{fig:PET_imaging_system}
 \end{figure}
 
 \section{Scintillatori}
-I cristalli scintillatori sono utilizzati per assorbire e convertire un raggio gamma ad alta energia in fotoni visibili a bassa energia, rilevati da opportuni sensori. Uno dei cristalli scintillatori più utilizzati è il \textit{Lutetium–(yttrium) oxyorthosilicate} (L(Y)SO) che garantisce una buona risoluzione di energia, alta luminosità in uscita e un tempo veloce di decadimento. Il processo di conversione di fotoni ad alta energia (raggi \textgamma) in luce visibile consiste in tre fasi \cite{RamseyDerek}:
+I cristalli scintillatori sono utilizzati per assorbire e convertire un raggio gamma ad alta energia in fotoni visibili a bassa energia, successivamente rilevabili da opportuni sensori. Uno dei cristalli scintillatori più utilizzati è il \textit{Lutetium–(yttrium) oxyorthosilicate} (L(Y)SO) che garantisce una buona risoluzione di energia, alta luminosità in uscita e un tempo veloce di decadimento. Il processo di conversione di fotoni ad alta energia (raggi \textgamma) in luce visibile consiste in tre fasi \cite{RamseyDerek}:
 \begin{itemize}
 	\item un fotone incidente sul cristallo libera un elettrone (tramite effetto fotoelettrico o effetto Compton);
-	\item quando l'elettrone attraversa il materiale, perde energia urtando ed eccitando altri elettroni;
-	\item gli elettroni eccitati ritornano decadono al loro stato base, emettendo fotoni (sotto forma di impulsi di luce nel visibile).
+	\item l'elettrone attraversa il materiale e perde energia urtando ed eccitando altri elettroni;
+	\item gli elettroni eccitati ritornano al loro stato base, emettendo fotoni (sotto forma di impulsi di luce nel visibile).
 \end{itemize}
 Gli scintillatori utilizzati nei sistemi di acquisizione PET possono essere differenziati considerando quattro diverse proprietà \cite{Schmitz2013ThePO}:
 \begin{itemize}
@@ -21,14 +21,14 @@ Gli scintillatori utilizzati nei sistemi di acquisizione PET possono essere diff
 	\item energy resolution;
 	\item light output.
 \end{itemize}
-Lo \textbf{stopping power} rappresenta l'inverso della distanza media percorsa dai fotoni prima di trasferire l'energia nel cristallo e dipende dalla densità e dal numero atomico effettivo del materiale. \`E preferibile che questo parametro sia alto (ossia poca distanza percorsa dai fotoni), in modo da avere più interazioni con i fotoni emessi dall'annichilazione \textit{elettrone-positrone}. La \textbf{decay constant}, invece, descrive la durata dell'impulso luminoso generato dal cristallo. \`E preferibile utilizzare cristalli con bassi valori di constante di decadimento in quanto permettono di rilevare un numero maggiore di impulsi a pari unità di tempo. Inoltre, è utile che il materiale abbia una buona risoluzione di energia (\textbf{energy resolution}), che descrive la capacità di distinguere raggi gamma con differenti energie. Infatti, nell'immagine \ref{fig:photo_peak} è mostrato lo spettro di distribuzione di energia, costruito misurando il numero di eventi rilevati con una certa ampiezza in funzione dell'energia depositata sul cristallo.
-\begin{figure}[h]
+Lo \textbf{stopping power} rappresenta l'inverso della distanza media percorsa dai fotoni prima di trasferire l'energia nel cristallo e dipende dalla densità e dal numero atomico effettivo del materiale. \`E preferibile che questo parametro sia alto (ossia poca distanza percorsa dai fotoni), in modo da avere più interazioni con i fotoni emessi dall'annichilazione \textit{elettrone-positrone}. La \textbf{decay constant}, invece, descrive la durata dell'impulso luminoso generato dal cristallo. \`E opportuno utilizzare cristalli con bassi valori di constante di decadimento in quanto permettono di rilevare un numero maggiore di impulsi a pari unità di tempo. Inoltre, è utile che il materiale abbia una buona risoluzione di energia (\textbf{energy resolution}), che descrive la capacità di distinguere raggi gamma con differenti energie. Infatti, nell'immagine \ref{fig:photo_peak} è mostrato lo spettro di distribuzione di energia, costruito misurando il numero di eventi rilevati con una certa ampiezza in funzione dell'energia depositata sul cristallo.
+\begin{figure}[tbh]
 	\centering
-	\includegraphics[width=0.4\linewidth]{./ImageFiles/Photo peak.jpg}
+	\includegraphics[width=0.35\linewidth]{./ImageFiles/Photo peak.jpg}
 	\caption{Esempio di uno spettro di energia, definito come il numero di eventi misurati con una certa ampiezza in funzione della energia depositata sul cristallo. Immagine tratta da Bailey D et al. \cite{Bailey2014}.}
 	\label{fig:photo_peak}
 \end{figure}
-Questa distribuzione è influenzata dalle caratteristiche del tracciatore radioattivo utilizzato e dal materiale con cui è realizzato il rilevatore. Tuttavia, è possibile sempre notare un picco marcato (denominato \textit{photopeak}), causato dall'assorbimento fotoelettrico, dove tutta l'energia del fotone è trasmessa all'elettrone. L'altra regione in cui l'energia si distribuisce è invece causata dall'effetto Compton, dove gli elettroni acquistano diversi valori di energia in base all'angolo di scattering. L'obiettivo delle tecniche di imaging della medicina nucleare è quello di riuscire a distinguere i raggi gamma che non hanno avuto interazioni con altri tessuti, che ne hanno provocato una deviazione. I fotoni di interesse sono proprio quelli i cui raggi \textgamma hanno energia pari al \textit{photopeak} e che, non essendo stati soggetti a fenomeni di scattering, permettono di risalire in modo accurato alla posizione del radionuclide. Tipicamente, il \textit{photopeak} si presenta in un valore di energie nell'intervallo \numrange[range-phrase=--]{440}{650}\,\unit{\kilo\electronvolt}. Infine, il parametro \textbf{light output} definisce il numero di fotoni emessi durante la scintillazione prodotti da ogni fotone incidente. Il valore di questo parametro dovrebbe essere il più alto possibile per garantire la massima risoluzione spaziale e di energia.
+Questa distribuzione è influenzata dalle caratteristiche del tracciatore radioattivo utilizzato e dal materiale con cui è realizzato il rilevatore. Tuttavia, è possibile sempre notare un picco marcato (denominato \textit{photopeak}), causato dall'assorbimento fotoelettrico, dove tutta l'energia del fotone è trasmessa all'elettrone. L'altra regione in cui l'energia si distribuisce è invece causata dall'effetto Compton, dove gli elettroni acquistano diversi valori di energia in base all'angolo di scattering. L'obiettivo delle tecniche di imaging della medicina nucleare è quello di riuscire a distinguere i raggi gamma che non hanno avuto interazioni con altri tessuti, che ne hanno provocato una deviazione. I fotoni di interesse sono proprio quelli che hanno energia pari al \textit{photopeak} e che, non essendo stati soggetti a fenomeni di scattering, permettono di risalire in modo accurato alla posizione del radionuclide all'interno del soggetto. Tipicamente, il \textit{photopeak} si presenta in un valore di energie nell'intervallo \numrange[range-phrase=--]{440}{650}\,\unit{\kilo\electronvolt}. Infine, il parametro \textbf{light output} definisce il numero di fotoni emessi durante la scintillazione prodotti da ogni fotone incidente. Il valore di questo parametro dovrebbe essere il più alto possibile per garantire la massima risoluzione spaziale e di energia del sistema.
 
 \noindent
 Il confronto tra alcune caratteristiche di diversi scintillatori utilizzati negli scanner PET sono riportate nella tabella \ref{tab:scintillator_properties}.
@@ -103,6 +103,7 @@ dove $f$ è il fattore di emissione di elettroni secondari di ogni dinodo e n è
 	\caption{Schema della struttura di un \textit{block detector} con piccoli cristalli scintillatori raggruppati in blocchi accoppiati a quattro PMT. Immagine tratta da Schmitz et al. \cite{Schmitz2013ThePO}}. 
 	\label{fig:block_detector}
 \end{figure}
+	\todo{guarda libro nuclear etcetc }
 Viene ricavato da un cristallo una matrice di blocchi scitillatori (di dimensioni di qualche millimetro), suddivisi da un materiale riflettente. Gli impulsi luminosi emessi vengono letti da 4 differenti PMT (\Fig\ref{fig:block_detector_cube}).
 \begin{figure}[tbh]
 	\centering
